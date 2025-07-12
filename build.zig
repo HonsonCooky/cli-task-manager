@@ -23,6 +23,9 @@ pub fn build(b: *std.Build) void {
     // RUN COMMAND
     // -----------------------------------------------------------------------------------------------------------------
     const run_exe = b.addRunArtifact(exe);
+    if (b.args) |args| {
+        run_exe.addArgs(args);
+    }
     const run_step = b.step("run", "Run the application");
     run_step.dependOn(&run_exe.step);
 
@@ -30,6 +33,6 @@ pub fn build(b: *std.Build) void {
     // -----------------------------------------------------------------------------------------------------------------
     const test_exe = b.addTest(.{ .root_module = exe_mod });
     const test_exe_artifact = b.addRunArtifact(test_exe);
-    const test_step = b.step("test", "Run unit tests on exe");
+    const test_step = b.step("test", "Run unit tests");
     test_step.dependOn(&test_exe_artifact.step);
 }
