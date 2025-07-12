@@ -1,15 +1,8 @@
 const std = @import("std");
 
-const Command = enum {
-    hello,
-};
-
-fn handleCommand(arg: []const u8) void {
-    if (std.meta.stringToEnum(Command, arg)) |cmd| {
-        switch (cmd) {
-            .hello => std.debug.print("hello world\n", .{}),
-        }
-    }
+fn evaluate(arg: []const u8, args: *std.process.ArgIterator) !void {
+    std.debug.print("Evaluating {s}", .{arg});
+    if (args.next()) |next| std.debug.print("Next: {s}", .{next});
 }
 
 pub fn main() !void {
@@ -20,10 +13,9 @@ pub fn main() !void {
     var args = try std.process.argsWithAllocator(allocator);
     defer args.deinit();
 
-    // First argument is the file path
-    _ = args.skip();
-    // Parse other args
+    _ = args.skip(); // Ignore the file path.
+
     while (args.next()) |arg| {
-        handleCommand(arg);
+        try evaluate(arg, &args);
     }
 }
