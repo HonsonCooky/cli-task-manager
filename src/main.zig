@@ -1,6 +1,7 @@
 const std = @import("std");
+const task = @import("./task.zig");
 
-fn evaluate(arg: []const u8, args: *std.process.ArgIterator) !void {
+fn evaluateArgs(arg: []const u8, args: *std.process.ArgIterator) !void {
     std.debug.print("Evaluating {s}", .{arg});
     if (args.next()) |next| std.debug.print("Next: {s}", .{next});
 }
@@ -15,7 +16,7 @@ pub fn main() !void {
 
     _ = args.skip(); // Ignore the file path.
 
-    while (args.next()) |arg| {
-        try evaluate(arg, &args);
-    }
+    // while (args.next()) |arg| {
+    //     try evaluateArgs(arg, &args);
+    // }
 }
