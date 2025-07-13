@@ -17,16 +17,15 @@ plain text) to persist them between sessions.
 
 ## Basic Features
 
-- Add a task: Prompt the user for a task description and store it.
-- List tasks: Display all tasks with their status.
-- Complete a task: Mark a task as completed by index or ID.
-- Delete a task: Remove a task from the list.
-- Persist tasks:
-- Save tasks to a file and load them on startup.
+- [ ] Add a task: Prompt the user for a task description and store it.
+- [ ] List tasks: Display all tasks with their status.
+- [ ] Complete a task: Mark a task as completed by index or ID.
+- [ ] Delete a task: Remove a task from the list.
+- [ ] Persist tasks: Save tasks to a file and load them on startup.
 
 ## Stretch Goals (to extend learning):
 
-- Add task priorities or categories.
-- Implement task filtering (e.g., show only pending tasks).
-- Support task deadlines with date parsing.
-- Add colorized output using ANSI escape codes.
+- [ ] Add task priorities or categories.
+- [ ] Implement task filtering (e.g., show only pending tasks).
+- [ ] Support task deadlines with date parsing.
+- [ ] Add colorized output using ANSI escape codes.
