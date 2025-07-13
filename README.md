@@ -28,6 +28,5 @@ plain text) to persist them between sessions.
 
 - Add task priorities or categories.
 - Implement task filtering (e.g., show only pending tasks).
-- Support task deadlines
-- with date parsing.
+- Support task deadlines with date parsing.
 - Add colorized output using ANSI escape codes.
