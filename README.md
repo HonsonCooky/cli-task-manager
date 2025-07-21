@@ -4,7 +4,7 @@ An exercise to learn Zig. This is a command line task manager.
 
 ## Description
 
-Build a simple CLI application that allows users to create, list, complete, and delete tasks. Tasks can
+Build a simple CLI application that allows users to create, read, update, and delete tasks. Tasks can
 have a description and a status (e.g., pending or completed). Optionally, you can store tasks in a file (e.g., JSON or
 plain text) to persist them between sessions.
 

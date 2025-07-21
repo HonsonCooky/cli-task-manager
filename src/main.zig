@@ -1,8 +1,9 @@
 const std = @import("std");
-const args_parser = @import("./args_parser.zig");
-const tasks = @import("./tasks.zig");
+const commands = @import("./commands.zig");
 
 pub fn main() !void {
+    const std_writer = std.io.getStdOut().writer();
+
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     defer _ = gpa.deinit();
     const allocator = gpa.allocator();
@@ -11,8 +12,8 @@ pub fn main() !void {
     defer arg_iter.deinit();
     _ = arg_iter.skip();
 
-    var task_manager = tasks.TaskManager.init(allocator);
-    defer task_manager.deinit();
-
-    _ = try args_parser.parse_args(allocator, &arg_iter);
+    _ = arg_iter.next() orelse {
+        try std_writer.print("No commands provided. Use 'help' to list commands.", .{});
+        return;
+    };
 }
